@@ -15,5 +15,6 @@ services:
     ports:
       - '27017:27017'
 steps:
+  - uses: actions/checkout@v1
   - run: npm i
   - run: npx jest
