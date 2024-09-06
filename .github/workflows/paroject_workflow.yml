@@ -14,7 +14,7 @@ services:
       MONGODB_PORT: '${{ job.services.mongodb.ports[27017] }}'
     ports:
       - '27017:27017'
-steps:
-  - uses: actions/checkout@v1
-  - run: npm i
-  - run: npx jest
+  steps:
+    - uses: actions/checkout@v1
+    - run: npm i
+    - run: npx jest
