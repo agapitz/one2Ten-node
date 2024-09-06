@@ -1,0 +1,19 @@
+name: Node.js CI
+'on':
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+services:
+  mongodb:
+    image: mongo
+    env:
+      MONGODB_HOST: mongodb
+      MONGODB_PORT: '${{ job.services.mongodb.ports[27017] }}'
+    ports:
+      - '27017:27017'
+steps:
+  - run: npm i
+  - run: npx jest
